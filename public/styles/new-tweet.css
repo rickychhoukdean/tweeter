@@ -4,7 +4,7 @@ textarea {
   background-color: #f4f1ec;
   border-bottom: 4px solid black;
   resize: none;
-  padding-bottom: 0px;
+  font-weight: 700;
 }
 
 #tweet-button {
