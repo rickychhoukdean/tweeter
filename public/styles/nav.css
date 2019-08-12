@@ -1,0 +1,32 @@
+nav {
+  font-family: "Bungee";
+  height: 120px;
+  top: 0px;
+  background-color: #4056a1;
+  color: #ffffff;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.title {
+  margin: 1.5em;
+  float: left;
+  font-size: 36px;
+}
+
+.subtitle {
+  float: right;
+  margin: 1.5em;
+  font-family: "Souce Sans Pro", sans-serif;
+}
+
+.first-word {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+}
+
+.down-arrow {
+  position: relative;
+  text-align: center;
+}

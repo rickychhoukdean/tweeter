@@ -6,10 +6,16 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,400,700,700i&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
@@ -18,15 +24,34 @@
   </head>
 
   <body>
-
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <div class="title">tweeter</div>
+      <div class="subtitle"><span class="first-word">Write</span> a new tweet
+      <div class="down-arrow">⬇</div></div>
     </nav>
+
+    <header>
+      <div>
+        <img src="/images/profile-hex.png"/>
+      </div>
+      <br/>
+      <div>
+        <h2></h2><span class="first-word">Ricky</span> Chhoukdean</h2>
+      </div>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+        <section class="new-tweet">
+            <h2>Compose Tweet</h2>
+            <form action="/tweets" method="POST" enctype="application/x-www-form-urlencoded">
+              <textarea name="text" placeholder="What are you humming about?"></textarea>
+              <input id="tweet-button" type="submit" value="Tweet">
+              <span class="counter">140</span>
+            </form>
+          </section>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quisquam? Reprehenderit necessitatibus esse accusamus saepe culpa corrupti eum ullam. Neque incidunt rem nihil molestiae doloribus necessitatibus et nemo perferendis debitis. Quae harum ducimus cum dolore porro illo, nam nihil. Suscipit vitae unde ea quaerat veniam ducimus consequatur, voluptatibus ipsam minima veritatis delectus quidem. At beatae architecto voluptatem illum dicta accusamus quis a totam minus reiciendis officiis sequi possimus provident eum culpa ipsum nesciunt eaque molestiae, ducimus repudiandae facere expedita nobis. Quod nemo consectetur, est placeat possimus delectus repudiandae harum quasi necessitatibus. Odit numquam excepturi accusamus repellat aliquam odio dolore quidem, explicabo amet id repellendus distinctio in quaerat incidunt labore blanditiis porro ullam, quibusdam unde totam iste ipsam ducimus modi mollitia? Aut fugiat veritatis culpa similique nobis, dolore ullam aliquam reiciendis accusamus ut eius vel ab. Rem earum fugit, velit eos, omnis delectus molestias accusamus sed quos commodi ad aut blanditiis aperiam, voluptatum ipsa exercitationem tempora voluptatibus corporis praesentium quis laboriosam! Eaque unde, ipsa ipsam tenetur qui quasi totam facere consectetur officia deserunt eius, pariatur modi repellat ex amet id voluptatem suscipit, placeat perspiciatis hic quisquam? Porro ut fuga quaerat odit quod enim error doloribus! Magnam quia officia delectus? Soluta cum labore vero fuga debitis! Quisquam, tenetur! At delectus similique ipsum. Saepe, nisi? Impedit ipsum nam nihil. Odit quo, necessitatibus tempora aspernatur facilis excepturi ducimus ea culpa possimus cum consequatur eaque nesciunt voluptatem repellendus, esse dolorum ut eos. Iste cupiditate architecto ipsam similique praesentium. Quo impedit, facilis saepe consequuntur non fugit quia in labore, eos esse ipsum odit quas culpa, at tempore facere maxime. Cumque vel tempora sapiente consequuntur qui, rem beatae. Saepe quia incidunt autem quaerat quae aperiam aspernatur cumque tempore doloremque eligendi unde consequatur quod, impedit fugiat sequi ipsum aliquid dolor sit! Vitae ratione, distinctio soluta vel molestiae consequuntur corporis quod libero voluptate voluptatem quae beatae odio suscipit excepturi, amet dolorem earum rerum debitis temporibus dicta odit. Velit quam, sint sapiente perspiciatis hic similique sit voluptas corrupti provident quos natus rem, quia voluptatem soluta fuga maiores officiis exercitationem. Fugiat cum soluta blanditiis iure quasi nesciunt. Perferendis culpa doloribus corporis. Ex, necessitatibus sed et similique provident odit beatae architecto sunt error temporibus dolorum consequuntur numquam qui aspernatur ratione delectus fuga fugit quo asperiores! Blanditiis, quas odit optio iusto corrupti repudiandae! Alias asperiores, omnis totam velit exercitationem iure harum magnam ducimus commodi molestias illum quod eveniet. Accusamus, laborum alias dicta id provident quis molestias delectus dolorem vel? Fugit eligendi neque aliquid reprehenderit ducimus laboriosam, reiciendis magnam, architecto eius beatae quis debitis. Optio harum est deserunt officiis quae aut quo, ipsa ratione beatae! Cum magnam fuga dolorem, unde odio quis et, ea voluptatem accusamus sit nostrum aut maiores quam harum nobis maxime sequi voluptas quod totam distinctio repellendus? Consectetur maiores, optio accusamus sunt pariatur mollitia? Error molestias quidem aspernatur cupiditate magni sapiente distinctio ut, ab sed aliquid laudantium consequatur. Reiciendis doloribus assumenda perferendis saepe unde atque ipsam blanditiis error nostrum commodi ipsum dolores delectus ab voluptas, aspernatur incidunt facere? Deleniti, mollitia vel.
     </main>
-
   </body>
 </html>

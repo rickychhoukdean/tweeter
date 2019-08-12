@@ -7,11 +7,14 @@
 // This is used to make the front-end behaviour a little more
 // realistic even while we use a simplistic "in-memory" db.
 
-function someMilliseconds() {
+const someMilliseconds = function() {
   return Math.floor(Math.random() * 400) + 100;
-}
+};
 
-module.exports = function simulateDelay(callback) {
+const simulateDelay = function(callback) {
   setTimeout(callback, someMilliseconds());
-}
+};
+
+module.exports = simulateDelay;
+
 
