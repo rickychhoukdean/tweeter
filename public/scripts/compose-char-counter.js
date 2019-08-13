@@ -1,30 +1,16 @@
-// $(document).ready(function() {
-//   $("textarea").on("input", function() {
-//     let maxLength = 5;
-//     let currentLength = $(this).val().length;
 
-//     if (currentLength >= maxLength) {
-//       alert("hi");
-//     } else {
-//       alert("nice");
-//     }
-//   });
-// });
-let maxLength = 140;
 $(document).ready(function() {
-  $(".new-tweet").on("keyup", function() {
+  $(".new-tweet").on("input", function() {
+    let maxLength = 140;
     let newLength = maxLength - $(this).val().length;
 
     if (newLength > 0) {
-      $(this)
-        .siblings("span")
-        .text(newLength)
-        .css("color", "black");
+      $(this).siblings(".counter").text(newLength).addClass("valid");
+      $(this).siblings(".counter").text(newLength).removeClass("invalid");
+      
     } else {
-      $(this)
-        .siblings("span")
-        .text(newLength)
-        .css("color", "red");
+      $(this).siblings(".counter").text(newLength).addClass("invalid");
+      $(this).siblings(".counter").text(newLength).removeClass("valid");
     }
   });
 });

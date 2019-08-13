@@ -18,3 +18,11 @@ textarea {
   float: right;
   font-family: "Bungee";
 }
+
+.invalid {
+  color: red;
+}
+
+.valid {
+  color: #545149;
+}
