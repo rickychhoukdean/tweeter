@@ -15,10 +15,13 @@ nav {
   font-size: 36px;
 }
 
-.subtitle {
+.navbutton {
   float: right;
   margin: 1.5em;
   font-family: "Souce Sans Pro", sans-serif;
+}
+.navbutton:hover{
+  cursor: pointer;
 }
 
 .first-word {

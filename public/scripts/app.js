@@ -4,37 +4,16 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac"
-    },
-    content: {
-      text:
-        "If I have seen further it is by standing on the shoulders of giants"
-    },
-    created_at: 1461116232227
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd"
-    },
-    content: {
-      text: "Je pense , donc je suis"
-    },
-    created_at: 1461113959088
-  }
-];
-
 const renderTweets = function(tweets) {
   for (let tweet in tweets) {
-    console.log(tweets[tweet]);
     $("#tweets-container").append(createTweetElement(tweets[tweet]));
   }
+};
+
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 };
 
 const createTweetElement = function(tweet) {
@@ -47,7 +26,7 @@ const createTweetElement = function(tweet) {
   }</div>
   <div class="handle">@${tweet.user.name}</div>
 </div>
-  <div class="tweet-body"> ${tweet.content.text}</div>
+  <div class="tweet-body"> ${escape(tweet.content.text)}</div>
   </header>
   <footer>
     <span class="date">${tweet.created_at}</span>
@@ -58,6 +37,51 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
+// const safeHTML = `<p>${escape(textFromUser)}</p>`;
+
 $(document).ready(function() {
-  renderTweets(data);
+  const loadTweets = function() {
+    $.get("/tweets", function(data, status) {
+      renderTweets(data);
+    });
+  };
+
+  loadTweets();
+
+  $("#tweet-button").on("click", function(event) {
+    event.preventDefault();
+    const payload = $(this)
+      .siblings(".new-tweet")
+      .serialize();
+
+    let messageLength = payload.length - 5; // for some reason my request shows as text=xxxx+xxxx where + is the space
+    if (messageLength === 0) {
+      alert("Please enter a message to be sent");
+    } else if (messageLength > 140) {
+      alert("Message too long");
+    } else {
+      $.post("/tweets", payload, function(data, status) {
+        loadTweets();
+        $(".new-tweet").val("");
+      });
+    }
+  });
+
+  $(".navbutton").on("click", function() {
+    $(".new-tweet").animate(
+      {
+        height: "toggle"
+      },
+      500
+    );
+  });
+
+  $(".nagivate-up-button").on("click", function() {
+    $("html,body").animate(
+      {
+        scrollTop: $("h2").offset().top
+      },
+      1000
+    );
+  });
 });

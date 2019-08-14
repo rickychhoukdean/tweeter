@@ -27,9 +27,22 @@ main.container {
   width: 90%;
   background-color: #f4f1ec;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.nagivate-up-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: red;
+  border-radius: 100%;
+  border-width: 0;
+}
+
+.nagivate-up-button:hover{
+  cursor: pointer;
+}
