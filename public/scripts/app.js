@@ -47,6 +47,7 @@ $(document).ready(function() {
   };
 
   loadTweets();
+  $(".error-message").slideUp(0);
 
   $("#tweet-button").on("click", function(event) {
     event.preventDefault();
@@ -56,9 +57,11 @@ $(document).ready(function() {
 
     let messageLength = payload.length - 5; // for some reason my request shows as text=xxxx+xxxx where + is the space
     if (messageLength === 0) {
-      alert("Please enter a message to be sent");
+      $(".error-message").text("❌ Error, you have submitted nothing.").slideDown(0);
+      setTimeout(()=>$(".error-message").text("❌ Error, you have submitted nothing.").slideUp("slow"), 10000);
     } else if (messageLength > 140) {
-      alert("Message too long");
+      $(".error-message").text("❌ Error, you are trying to submit over 140 characters.").slideDown(0);
+      setTimeout(()=>$(".error-message").text("❌ Error, you are trying to submit over 140 characters.").slideUp("slow"), 10000);
     } else {
       $.post("/tweets", payload, function(data, status) {
         loadTweets();

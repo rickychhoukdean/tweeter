@@ -27,14 +27,16 @@
   </head>
 
   <body>
+    
     <!-- Top nav bar (fixed) -->
-    <nav>
+    <nav class="top-nav">
       <div class="title">tweeter</div>
       <div class="navbutton"><span class="first-word">Write</span> a new tweet
       <div class="down-arrow"><i class="fas fa-arrow-down"></i></div></div>
+      <button class="nagivate-up-button">^</button>
     </nav>
 
-      <button class="nagivate-up-button">^</button>
+     
 
     <header id="main">
       <div>
@@ -49,6 +51,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
         <section class="new-tweet">
+          <div class="error-message">Error Message</div>
             <h2>Compose Tweet</h2>
             <form action="/tweets" method="POST" enctype="application/x-www-form-urlencoded">
               <textarea class="new-tweet" rows="1" name="text" placeholder="What are you humming about?"></textarea>
