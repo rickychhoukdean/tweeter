@@ -63,7 +63,6 @@ $(document).ready(function() {
       setTimeout(
         () =>
           $(".error-message")
-            // .text("❌ Error, you have submitted nothing.")
             .slideUp("slow"),
         10000
       );
@@ -74,7 +73,6 @@ $(document).ready(function() {
       setTimeout(
         () =>
           $(".error-message")
-            // .text("❌ Error, you are trying to submit over 140 characters.")
             .slideUp("slow"),
         10000
       );
