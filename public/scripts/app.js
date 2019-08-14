@@ -66,6 +66,7 @@ $(document).ready(function() {
       $.post("/tweets", payload, function(data, status) {
         loadTweets();
         $(".new-tweet").val("");
+        (".error-message").slideUp(0);
       });
     }
   });
