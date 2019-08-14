@@ -39,12 +39,13 @@ main.container {
   bottom: 0;
   right: 0;
   background-color: red;
-  color:white;
+  color: white;
   border-radius: 100%;
   border-width: 0;
   /* font-size: 200%; */
-  padding: .75em;
-  margin: .75em;
+  padding: 0.75em;
+  margin: 0.75em;
+  opacity: 0;
 }
 
 .nagivate-up-button:hover {

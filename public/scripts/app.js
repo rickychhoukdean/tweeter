@@ -83,9 +83,14 @@ $(document).ready(function() {
   $(".nagivate-up-button").on("click", function() {
     $("html,body").animate(
       {
-        scrollTop: $("h2").offset().top
+        scrollTop: $("html,body").offset().top
       },
       1000
     );
+  });
+
+
+  $(window).scroll(function() {
+    $(".nagivate-up-button").css("opacity", "100" );
   });
 });
