@@ -1,4 +1,6 @@
-#tweets-container {
+.flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 article.tweet {
@@ -7,6 +9,14 @@ article.tweet {
   border-width: 4px;
   width: 100%;
   filter: blur(1px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+article footer{
+  display:flex;
+  justify-content: space-between;
 }
 
 article.tweet:hover {
@@ -19,20 +29,14 @@ article.tweet:hover .handle {
   opacity: 1;
 }
 
-.flex {
-  display: flex;
-  justify-content: space-between;
-}
-
 article.tweet .handle {
-  float: right;
+  /* float: right; */
   margin: 1em;
   color: #545149;
   opacity: 0;
 }
 
 article.tweet .user {
-  float: left;
   margin: 1em;
 }
 
@@ -42,24 +46,20 @@ article.tweet .tweet-body {
 
 article.tweet header {
   width: 100%;
-  height: 225px;
 }
 
 article.tweet footer {
   border-style: solid;
   border-width: 4px 0px 0px 0px;
   width: 95%;
-  height: 60px;
   margin: 0 auto;
 }
 
 footer .date {
-  float: left;
   margin: 1em;
   font-size: 70%;
 }
 footer .icons {
-  float: right;
   margin: 1em;
   font-size: 70%;
 }

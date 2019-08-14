@@ -57,16 +57,32 @@ $(document).ready(function() {
 
     let messageLength = payload.length - 5; // for some reason my request shows as text=xxxx+xxxx where + is the space
     if (messageLength === 0) {
-      $(".error-message").text("❌ Error, you have submitted nothing.").slideDown(0);
-      setTimeout(()=>$(".error-message").text("❌ Error, you have submitted nothing.").slideUp("slow"), 10000);
+      $(".error-message")
+        .text("❌ Error, you have submitted nothing.")
+        .slideDown(0);
+      setTimeout(
+        () =>
+          $(".error-message")
+            // .text("❌ Error, you have submitted nothing.")
+            .slideUp("slow"),
+        10000
+      );
     } else if (messageLength > 140) {
-      $(".error-message").text("❌ Error, you are trying to submit over 140 characters.").slideDown(0);
-      setTimeout(()=>$(".error-message").text("❌ Error, you are trying to submit over 140 characters.").slideUp("slow"), 10000);
+      $(".error-message")
+        .text("❌ Error, you are trying to submit over 140 characters.")
+        .slideDown(0);
+      setTimeout(
+        () =>
+          $(".error-message")
+            // .text("❌ Error, you are trying to submit over 140 characters.")
+            .slideUp("slow"),
+        10000
+      );
     } else {
       $.post("/tweets", payload, function(data, status) {
         loadTweets();
         $(".new-tweet").val("");
-        (".error-message").slideUp(0);
+        ".error-message".slideUp(0);
       });
     }
   });
@@ -89,8 +105,13 @@ $(document).ready(function() {
     );
   });
 
-
   $(window).scroll(function() {
-    $(".nagivate-up-button").css("opacity", "100" );
+    let height = $(window).scrollTop();
+
+    if (height > 1) {
+      $(".nagivate-up-button").css("opacity", "100");
+    } else {
+      $(".nagivate-up-button").css("opacity", "0");
+    }
   });
 });

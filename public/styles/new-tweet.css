@@ -8,8 +8,9 @@ textarea.new-tweet {
 }
 
 .container {
-  align-items: center;
-  /* display: flex; */
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
 }
 
 .error-message {
@@ -22,17 +23,11 @@ textarea.new-tweet {
   overflow-y: hidden;
 }
 
-#tweets-container {
-}
-
 #tweet-button {
   font-family: "Bungee";
   color: white;
   background-color: #4056a1;
   border: none;
-}
-
-.tweet {
 }
 
 .counter {
