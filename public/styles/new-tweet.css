@@ -8,6 +8,7 @@ textarea.new-tweet {
 }
 
 .container {
+  margin-top: 2em;
   align-items: stretch;
   display: flex;
   flex-direction: column;

@@ -64,7 +64,7 @@ $(document).ready(function() {
         () =>
           $(".error-message")
             .slideUp("slow"),
-        10000
+        5000
       );
     } else if (messageLength > 140) {
       $(".error-message")
@@ -74,15 +74,22 @@ $(document).ready(function() {
         () =>
           $(".error-message")
             .slideUp("slow"),
-        10000
+        5000
       );
     } else {
       $.post("/tweets", payload, function(data, status) {
+        $('.counter').text("140");
         loadTweets();
         $(".new-tweet").val("");
         ".error-message".slideUp(0);
       });
     }
+  });
+ 
+
+//
+  $(window).on("click", function() {
+    $(".error-message").slideUp();
   });
 
   $(".navbutton").on("click", function() {

@@ -1,11 +1,9 @@
 header#main {
-  margin-top: 120px;
-  height: 400px;
-  width: 100%;
   background-color: #e89300;
   text-align: center;
   color: #ffffff;
-  z-index: 2;
+  padding: 3em;
+  margin-top: 120px;
 
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
