@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
- //Function to append tweets to the end of the page
+//Function to append tweets to the end of the page
 const renderTweets = function(tweets) {
   for (let tweet in tweets) {
     $("#tweets-container").append(createTweetElement(tweets[tweet]));
@@ -20,17 +20,17 @@ const dateCalculator = function(tweetTime) {
   let daysElapsed = timeElapsed / (60 * 60 * 24 * 1000);
 
   switch (true) {
-  case daysElapsed >= 1: {
-    return `${Math.round(daysElapsed)} days ago`;
-  }
-  case daysElapsed < 1 && daysElapsed > 1 / 24: {
-    return `${Math.round(daysElapsed * 24)} hours ago`;
-  }
-  case daysElapsed < 1 && daysElapsed > 1 / 1440: {
-    return `${Math.round(daysElapsed * 1440)} minutes ago`;
-  }
-  default:
-    return "Less than a minute ago";
+    case daysElapsed >= 1: {
+      return `${Math.round(daysElapsed)} days ago`;
+    }
+    case daysElapsed < 1 && daysElapsed > 1 / 24: {
+      return `${Math.round(daysElapsed * 24)} hours ago`;
+    }
+    case daysElapsed < 1 && daysElapsed > 1 / 1440: {
+      return `${Math.round(daysElapsed * 1440)} minutes ago`;
+    }
+    default:
+      return "Less than a minute ago";
   }
 };
 
@@ -55,7 +55,9 @@ const createTweetElement = function(tweet) {
   <article class="tweet">
     <header>
       <div class="flex">
-        <div class="user"><span class="smallpic"><img src="${tweet.user.avatars}"></span></i>${tweet.user.name}</div>
+        <div class="user"><span class="smallpic"><img src="${
+          tweet.user.avatars
+        }"></span></i>${tweet.user.name}</div>
        <div class="handle">@${tweet.user.name}</div>
       </div>
       <div class="tweet-body"> ${escape(tweet.content.text)}</div>
@@ -69,9 +71,7 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-
 $(document).ready(function() {
-
   //Function to render all the tweets at once
   const loadTweets = function() {
     $.get("/tweets", function(data) {
@@ -79,13 +79,11 @@ $(document).ready(function() {
     });
   };
 
-
   //Page initializing by loading all of the tweets in the database and hiding the error message and compose tweet
   loadTweets();
   $(".error-message").slideUp(0);
   $(".new-tweet").slideUp(0);
   $(".nagivate-up-button").fadeOut(0);
-
 
   $(window).on("click", function() {
     if ($(".error-message").is(":visible")) {
@@ -102,7 +100,9 @@ $(document).ready(function() {
 
     let messageLength = payload.length - 5;
     if (messageLength === 0 || messageLength > 140) {
-      $(".error-message").text(errorMessage(messageLength)).slideDown(0);
+      $(".error-message")
+        .text(errorMessage(messageLength))
+        .slideDown(0);
       setTimeout(() => $(".error-message").slideUp("slow"), 5000);
     } else {
       $.post("/tweets", payload, function(data, status) {
@@ -126,7 +126,7 @@ $(document).ready(function() {
       .focus();
   });
 
-//Navigate up to bring the user to the top of the page
+  //Navigate up to bring the user to the top of the page
   $(".nagivate-up-button").on("click", function() {
     $("html,body").animate(
       {
@@ -134,15 +134,25 @@ $(document).ready(function() {
       },
       1000
     );
+    $(".new-tweet")
+      .animate(
+        {
+          height: "toggle"
+        },
+        300
+      )
+      .focus();
   });
 
-  //The button will appear if the user has scrolled 
+  //The button will appear if the user has scrolled
   $(window).scroll(function() {
     let height = $(window).scrollTop();
     if (height > 1) {
       $(".nagivate-up-button").fadeIn(300);
+      $(".navbutton").fadeOut(300);
     } else {
       $(".nagivate-up-button").fadeOut(300);
+      $(".navbutton").fadeIn(300);
     }
   });
 });

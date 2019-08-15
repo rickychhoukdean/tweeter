@@ -23,6 +23,10 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.description{
+  color:transparent;
+}
+
 main.container {
   width: 90%;
   background-color: #f4f1ec;

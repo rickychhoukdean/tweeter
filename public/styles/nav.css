@@ -4,8 +4,8 @@ nav.top-nav {
   font-family: "Bungee";
   height: 120px;
   top: 0px;
-  background-color: #4056a1;
-  color: #ffffff;
+  background-color: transparent;
+  color: #dbcfb0;
   width: 100%;
   position: fixed;
   z-index: 100;
