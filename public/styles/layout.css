@@ -24,7 +24,7 @@ body {
 }
 
 .description{
-  color:transparent;
+  display:none;
 }
 
 main.container {

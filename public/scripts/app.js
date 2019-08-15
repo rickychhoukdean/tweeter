@@ -20,17 +20,17 @@ const dateCalculator = function(tweetTime) {
   let daysElapsed = timeElapsed / (60 * 60 * 24 * 1000);
 
   switch (true) {
-    case daysElapsed >= 1: {
-      return `${Math.round(daysElapsed)} days ago`;
-    }
-    case daysElapsed < 1 && daysElapsed > 1 / 24: {
-      return `${Math.round(daysElapsed * 24)} hours ago`;
-    }
-    case daysElapsed < 1 && daysElapsed > 1 / 1440: {
-      return `${Math.round(daysElapsed * 1440)} minutes ago`;
-    }
-    default:
-      return "Less than a minute ago";
+  case daysElapsed >= 1: {
+    return `${Math.round(daysElapsed)} days ago`;
+  }
+  case daysElapsed < 1 && daysElapsed > 1 / 24: {
+    return `${Math.round(daysElapsed * 24)} hours ago`;
+  }
+  case daysElapsed < 1 && daysElapsed > 1 / 1440: {
+    return `${Math.round(daysElapsed * 1440)} minutes ago`;
+  }
+  default:
+    return "Less than a minute ago";
   }
 };
 
@@ -55,9 +55,7 @@ const createTweetElement = function(tweet) {
   <article class="tweet">
     <header>
       <div class="flex">
-        <div class="user"><span class="smallpic"><img src="${
-          tweet.user.avatars
-        }"></span></i>${tweet.user.name}</div>
+        <div class="user"><span class="smallpic"><img src="${tweet.user.avatars}"></span></i>${tweet.user.name}</div>
        <div class="handle">@${tweet.user.name}</div>
       </div>
       <div class="tweet-body"> ${escape(tweet.content.text)}</div>
@@ -79,17 +77,24 @@ $(document).ready(function() {
     });
   };
 
+  const appendTweets = function() {
+    $.get("/tweets", function(data) {
+      renderTweets(data.slice(data.length - 1));
+    });
+  };
+
   //Page initializing by loading all of the tweets in the database and hiding the error message and compose tweet
   loadTweets();
   $(".error-message").slideUp(0);
   $(".new-tweet").slideUp(0);
   $(".nagivate-up-button").fadeOut(0);
 
-  $(window).on("click", function() {
-    if ($(".error-message").is(":visible")) {
-      $(".error-message").slideUp();
-    }
-  });
+  //Soon to add this onclick function to remove the slideup
+  // $(window).on("click", function() {
+  //   if ($(".error-message").is(":visible")) {
+  //     $(".error-message").slideUp();
+  //   }
+  // });
 
   //Event listener on the tweet button
   $("#tweet-button").on("click", function(event) {
@@ -106,10 +111,10 @@ $(document).ready(function() {
       setTimeout(() => $(".error-message").slideUp("slow"), 5000);
     } else {
       $.post("/tweets", payload, function(data, status) {
+        appendTweets();
         $(".counter").text("140");
-        loadTweets();
         $(".new-tweet").val("");
-        ".error-message".slideUp(0);
+        $(".error-message").slideUp(0);
       });
     }
   });

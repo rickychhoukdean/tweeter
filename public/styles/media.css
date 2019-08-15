@@ -28,7 +28,7 @@
 
 
 
-  article.tweet, #tweet-button, textarea{
+  article.tweet, #tweet-button, textarea, .error-message{
       margin-left:5%;
       /* margin-right:5%; */
   }
