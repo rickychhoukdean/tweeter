@@ -16,9 +16,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-![A sceenshot of the tweet with the compose tweet button active.](/tweeter/Screenshots/Desktop-Screenshot.png)
+![A sceenshot of the tweet with the compose tweet button active.](/Screenshots/Desktop-Screenshot.png)
 
-![A screenshot of the mobile version of the app.](/tweeter/Screenshots/Mobile-Screenshot.png)
+![A screenshot of the mobile version of the app.](/Screenshots/Mobile-Screenshot.png)
 
 ## Dependencies
 
