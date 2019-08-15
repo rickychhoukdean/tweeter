@@ -1,10 +1,17 @@
-header#main {
-  background-color: #e89300;
-  text-align: center;
-  color: #ffffff;
-  padding: 3em;
-  margin-top: 120px;
-
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+@media only screen and (max-width : 1023px) {
+  header#main {
+    background-color: #77878B;
+    text-align: center;
+    color: #DBCFB0;
+    padding: 3em;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 400px;
+    /* margin-top:120px; */
+    z-index: 10;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  }
 }

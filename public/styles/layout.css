@@ -38,13 +38,12 @@ main.container {
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: red;
+  background-color: #BFC8AD;
   color: white;
   border-radius: 100%;
   border-width: 0;
   padding: 0.75em;
   margin: 0.75em;
-  opacity: 0;
 }
 
 .nagivate-up-button:hover {

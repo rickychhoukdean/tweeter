@@ -1,16 +1,17 @@
 @media only screen and (min-width: 1024px) {
-    nav.top-nav {
-        display:flex;
-        justify-content: space-between;
-         font-family: "Bungee";
-         height: 120px;
-         top: 0px;
-         background-color: #4056a1;
-         color: #ffffff;
-         width: 100%;
-         position: fixed;
-         z-index: 1;
-       }
+  nav.top-nav {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Bungee";
+    height: 120px;
+    top: 0px;
+    background-color: #4056a1;
+    color: #DBCFB0;
+    width: 100%;
+    position: fixed;
+    
+    z-index: 1;
+  }
 
   #desktop-width {
     margin-top: 7em;
@@ -18,11 +19,20 @@
     justify-content: space-around;
   }
 
-  .container {
+  main.container {
+    margin: 1em 3.5em 0 17em;
   }
 
-  header#main, main.container{
-      margin: 2em 2em 0 0;
- 
+  header#main {
+    margin: 8em 5em 0 2em;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: #77878B;
+    text-align: center;
+    color: #DBCFB0;
+    padding: 1.5em;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    
   }
 }

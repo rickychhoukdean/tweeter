@@ -8,10 +8,15 @@
   flex-direction: column-reverse;
 }
 
+.smallpic {
+  margin-right: 0.5em;
+}
+
 article.tweet {
   margin-top: 1em;
   border-style: solid;
   border-width: 4px;
+  border-color: black;
   width: 100%;
   filter: blur(0px);
   display: flex;
@@ -26,18 +31,19 @@ article footer {
 
 article.tweet:hover {
   filter: blur(0px);
-  box-shadow: 5px 5px 1px black;
+  box-shadow: 5px 5px 1px #73877b;
   color: #545149;
 }
 
 article.tweet:hover .handle {
-  opacity: 1;
+  opacity: 0.5;
+  font-style: italic;
 }
 
 article.tweet .handle {
   /* float: right; */
   margin: 1em;
-  color: #545149;
+  color: #305252;
   opacity: 0;
 }
 
@@ -57,6 +63,7 @@ article.tweet footer {
   border-style: solid;
   border-width: 4px 0px 0px 0px;
   width: 95%;
+  border-color: black;
   margin: 0 auto;
 }
 
@@ -73,5 +80,3 @@ footer .icons {
 article.tweet:hover .icons {
   opacity: 100;
 }
-
-
