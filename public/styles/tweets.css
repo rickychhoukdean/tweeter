@@ -1,11 +1,10 @@
 .flex {
   display: flex;
   justify-content: space-between;
-  
 }
 
-#tweets-container{
-  display:flex;
+#tweets-container {
+  display: flex;
   flex-direction: column-reverse;
 }
 
@@ -20,8 +19,8 @@ article.tweet {
   justify-content: space-between;
 }
 
-article footer{
-  display:flex;
+article footer {
+  display: flex;
   justify-content: space-between;
 }
 
@@ -66,6 +65,13 @@ footer .date {
   font-size: 70%;
 }
 footer .icons {
+  opacity: 0;
   margin: 1em;
   font-size: 70%;
 }
+
+article.tweet:hover .icons {
+  opacity: 100;
+}
+
+

@@ -10,6 +10,36 @@ const renderTweets = function(tweets) {
   }
 };
 
+const dateCalculator = function(tweetTime) {
+  let currentDate = new Date();
+  let currentTime = currentDate.getTime();
+  let timeElapsed = currentTime - tweetTime;
+
+  let daysElapsed = timeElapsed / (60 * 60 * 24 * 1000);
+
+  switch (true) {
+    case daysElapsed >= 1: {
+      return `${Math.round(daysElapsed)} days ago`;
+    }
+    case daysElapsed < 1 && daysElapsed > 1 / 24: {
+      return `${Math.round(daysElapsed * 1000)} hours ago`;
+    }
+    case daysElapsed < 1 && daysElapsed > 1 / 1440: {
+      return `${Math.round(daysElapsed * 1000)} minutes ago`;
+    }
+    default:
+      return "Less than a minute ago";
+  }
+};
+
+const errorMessage = function(messageLength) {
+  if (messageLength === 0) {
+    return "❌ Error, you have submitted nothing.";
+  } else if (messageLength > 140) {
+    return "❌ Error, you are trying to submit over 140 characters.";
+  }
+};
+
 const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -19,35 +49,40 @@ const escape = function(str) {
 const createTweetElement = function(tweet) {
   let $tweet = `
   <article class="tweet">
-  <header>
-  <div class="flex">
-  <div class="user"><img src="${tweet.user.avatars}"></i>${
+    <header>
+      <div class="flex">
+        <div class="user"><img src="${tweet.user.avatars}"></i>${
     tweet.user.name
   }</div>
-  <div class="handle">@${tweet.user.name}</div>
-</div>
-  <div class="tweet-body"> ${escape(tweet.content.text)}</div>
-  </header>
-  <footer>
-    <span class="date">${tweet.created_at}</span>
-    <span class="icons"><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i><i class="fas fa-heart"></i></span>
-  </footer>
-</article>
+       <div class="handle">@${tweet.user.name}</div>
+      </div>
+      <div class="tweet-body"> ${escape(tweet.content.text)}</div>
+     </header>
+     <footer>
+      <span class="date">${dateCalculator(tweet.created_at)} </span>
+      <span class="icons"><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i><i class="fas fa-heart"></i></span>
+     </footer>
+  </article>
   `;
   return $tweet;
 };
 
-// const safeHTML = `<p>${escape(textFromUser)}</p>`;
-
 $(document).ready(function() {
   const loadTweets = function() {
-    $.get("/tweets", function(data, status) {
+    $.get("/tweets", function(data) {
       renderTweets(data);
     });
   };
 
   loadTweets();
   $(".error-message").slideUp(0);
+  $(".new-tweet").slideUp(0);
+
+  $(window).on("click", function() {
+    if ($(".error-message").is(":visible")) {
+      $(".error-message").slideUp();
+    }
+  });
 
   $("#tweet-button").on("click", function(event) {
     event.preventDefault();
@@ -55,50 +90,31 @@ $(document).ready(function() {
       .siblings(".new-tweet")
       .serialize();
 
-    let messageLength = payload.length - 5; // for some reason my request shows as text=xxxx+xxxx where + is the space
-    if (messageLength === 0) {
+    let messageLength = payload.length - 5;
+    if (messageLength === 0 || messageLength > 140) {
       $(".error-message")
-        .text("❌ Error, you have submitted nothing.")
+        .text(errorMessage(messageLength))
         .slideDown(0);
-      setTimeout(
-        () =>
-          $(".error-message")
-            .slideUp("slow"),
-        5000
-      );
-    } else if (messageLength > 140) {
-      $(".error-message")
-        .text("❌ Error, you are trying to submit over 140 characters.")
-        .slideDown(0);
-      setTimeout(
-        () =>
-          $(".error-message")
-            .slideUp("slow"),
-        5000
-      );
+      setTimeout(() => $(".error-message").slideUp("slow"), 5000);
     } else {
       $.post("/tweets", payload, function(data, status) {
-        $('.counter').text("140");
+        $(".counter").text("140");
         loadTweets();
         $(".new-tweet").val("");
         ".error-message".slideUp(0);
       });
     }
   });
- 
-
-//
-  $(window).on("click", function() {
-    $(".error-message").slideUp();
-  });
 
   $(".navbutton").on("click", function() {
-    $(".new-tweet").animate(
-      {
-        height: "toggle"
-      },
-      500
-    );
+    $(".new-tweet")
+      .animate(
+        {
+          height: "toggle"
+        },
+        500
+      )
+      .focus();
   });
 
   $(".nagivate-up-button").on("click", function() {

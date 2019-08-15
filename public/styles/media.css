@@ -1,4 +1,17 @@
 @media only screen and (min-width: 1024px) {
+    nav.top-nav {
+        display:flex;
+        justify-content: space-between;
+         font-family: "Bungee";
+         height: 120px;
+         top: 0px;
+         background-color: #4056a1;
+         color: #ffffff;
+         width: 100%;
+         position: fixed;
+         z-index: 1;
+       }
+
   #desktop-width {
     margin-top: 7em;
     display: flex;
