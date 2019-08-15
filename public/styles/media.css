@@ -24,7 +24,7 @@
     margin-right: 10%;
   }
 
-  article.tweet, #tweet-button, textarea, .error-message{
+  article.tweet, .counter, #tweet-button, textarea, .error-message{
       margin-left:5%;
   }
 
@@ -35,6 +35,7 @@
   }
 
   .description {
+      display:block;
     margin-top: 2em;
     font-style: italic;
     color: #dbcfb0;
