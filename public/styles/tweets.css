@@ -41,7 +41,6 @@ article.tweet:hover .handle {
 }
 
 article.tweet .handle {
-  /* float: right; */
   margin: 1em;
   color: #305252;
   opacity: 0;

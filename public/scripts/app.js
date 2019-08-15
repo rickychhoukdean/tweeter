@@ -16,7 +16,6 @@ const dateCalculator = function(tweetTime) {
   let currentDate = new Date();
   let currentTime = currentDate.getTime();
   let timeElapsed = currentTime - tweetTime;
-
   let daysElapsed = timeElapsed / (60 * 60 * 24 * 1000);
 
   switch (true) {
@@ -77,6 +76,7 @@ $(document).ready(function() {
     });
   };
 
+  //Function to append the last tweet
   const appendTweets = function() {
     $.get("/tweets", function(data) {
       renderTweets(data.slice(data.length - 1));

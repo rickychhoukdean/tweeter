@@ -9,14 +9,12 @@
     color: #dbcfb0;
     width: 100%;
     position: fixed;
-
     z-index: 1;
   }
 
   #desktop-width {
     margin-top: 7em;
     display: flex;
-    /* justify-content: space-between; */
   }
 
   main.container {
@@ -26,11 +24,8 @@
     margin-right: 10%;
   }
 
-
-
   article.tweet, #tweet-button, textarea, .error-message{
       margin-left:5%;
-      /* margin-right:5%; */
   }
 
   #main {
