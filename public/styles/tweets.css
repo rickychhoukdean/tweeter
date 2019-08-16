@@ -18,7 +18,6 @@ article.tweet {
   border-width: 4px;
   border-color: black;
   width: 100%;
-  filter: blur(0px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,7 +29,6 @@ article footer {
 }
 
 article.tweet:hover {
-  filter: blur(0px);
   box-shadow: 5px 5px 1px #73877b;
   color: #545149;
 }
