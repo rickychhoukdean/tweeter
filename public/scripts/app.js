@@ -19,17 +19,17 @@ const dateCalculator = function(tweetTime) {
   let daysElapsed = timeElapsed / (60 * 60 * 24 * 1000);
 
   switch (true) {
-  case daysElapsed >= 1: {
-    return `${Math.round(daysElapsed)} days ago`;
-  }
-  case daysElapsed < 1 && daysElapsed > 1 / 24: {
-    return `${Math.round(daysElapsed * 24)} hours ago`;
-  }
-  case daysElapsed < 1 && daysElapsed > 1 / 1440: {
-    return `${Math.round(daysElapsed * 1440)} minutes ago`;
-  }
-  default:
-    return "Less than a minute ago";
+    case daysElapsed >= 1: {
+      return `${Math.round(daysElapsed)} days ago`;
+    }
+    case daysElapsed < 1 && daysElapsed > 1 / 24: {
+      return `${Math.round(daysElapsed * 24)} hours ago`;
+    }
+    case daysElapsed < 1 && daysElapsed > 1 / 1440: {
+      return `${Math.round(daysElapsed * 1440)} minutes ago`;
+    }
+    default:
+      return "Less than a minute ago";
   }
 };
 
@@ -54,7 +54,9 @@ const createTweetElement = function(tweet) {
   <article class="tweet">
     <header>
       <div class="flex">
-        <div class="user"><span class="smallpic"><img src="${tweet.user.avatars}"></span></i>${tweet.user.name}</div>
+        <div class="user"><span class="smallpic"><img src="${
+          tweet.user.avatars
+        }"></span></i>${tweet.user.name}</div>
        <div class="handle">@${tweet.user.name}</div>
       </div>
       <div class="tweet-body"> ${escape(tweet.content.text)}</div>
@@ -70,6 +72,9 @@ const createTweetElement = function(tweet) {
 
 $(document).ready(function() {
   //Function to render all the tweets at once
+
+  $(".date-value").css("background-color", "yellow");
+
   const loadTweets = function() {
     $.get("/tweets", function(data) {
       renderTweets(data);
